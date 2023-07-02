@@ -1,0 +1,36 @@
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .product-item {
+    margin: 15px;
+    width: 40vh;
+    height: 50vh;
+    object-fit: contain;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  }
+  .product-title {
+    /* color: green; */
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 5%;
+  }
+  .extra{
+    margin-left: 5%;
+    border-radius: 5px;
+    border: none;
+    background-color: green;
+    padding: 5px 10px;
+    color: white;
+  }
+  .header{
+    color: green;
+  }
+  
