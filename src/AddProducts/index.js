@@ -5,17 +5,19 @@ import "./style.css";
 const AddProduct = ({ setProducts }) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
+  // const handleTitleChange = (e) => {
+  //   setTitle(e.target.value);
+  // };
 
-  const handleImageChange = (e) => {
-    setImage(e.target.value);
-  };
+  // const handleImageChange = (e) => {
+  //   setImage(e.target.value);
+  // };
 
-  const handleSubmit = async (e) => {
+  const newDetails = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch("https://dummyjson.com/products/add", {
@@ -24,12 +26,14 @@ const AddProduct = ({ setProducts }) => {
         body: JSON.stringify({
           title,
           image,
+          price,
+          description,
         }),
       });
       const result = await response.json();
-      // Update the products state with the newly added product
+      
       setProducts((prevProducts) => [...prevProducts, result.product]);
-      console.log("Added Product:", result.product); // Log the added product
+      console.log("Added Product:", result.product); 
       navigate("/products");
     } catch (error) {
       console.log(error.message);
@@ -37,23 +41,19 @@ const AddProduct = ({ setProducts }) => {
   };
 
   return (
-    <div>
+    <div className="new">
       <h1 className="header">Add Product</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Image URL"
-          value={image}
-          onChange={handleImageChange}
-        />
+      <form className="form">
+        <input type="text" placeholder="Image URL" value={image}/>
         <br />
         <br />
-        <input
-          type="text"
-          placeholder="Product Name"
-          value={title}
-          onChange={handleTitleChange}
-        />
+        <input type="text" placeholder="Product Name" value={title} />
+        <br />
+        <br />
+        <input type="text" placeholder="Product Price" value={price} />
+        <br />
+        <br />
+        <input type="text" placeholder="Product Description" value={description} />
         <br />
         <br />
         <button type="submit" className="extra">Add</button>

@@ -11,7 +11,7 @@ import {
 const LogIn = () =>{
     return(
         <div>
-            <form>
+            <form className="form">
                 <h1>Log In</h1>
                 <input placeholder="Enter Username" type="text"/>
                 <br/>
@@ -19,7 +19,7 @@ const LogIn = () =>{
                 <input placeholder="Enter Password" type="password"/>
                 <br/>
                 <br/>
-                <Link to= '/products' className="btn"><button type="Submit">Log In</button></Link>
+                <Link to= '/products' className="btn"><button type="Submit" className="extra">Log In</button></Link>
                 
             </form>
             <br/>

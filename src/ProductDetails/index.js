@@ -7,21 +7,25 @@ const ProductDetails = () => {
   const  [product, setProduct] = useState(null);
 
   useEffect(() => {
-    const getProductDetails = async () => {
+    const details = async () => {
+
       try {
         const response = await fetch(`https://dummyjson.com/products/${productId}`);
-        const data = await response.json();
-        setProduct(data);
-        console.log({data});
-      } catch (error) {
-        console.error(error);
+        const info = await response.json();
+        setProduct(info);
+        console.log({info});
+      } 
+      catch (error) {
+        console.log(error.message);
       }
     };
-    getProductDetails();
+    details();
   }, [productId]);
+
   if (!product) {
-    return <p>Loading product details...</p>;
+    return <p>Loading...</p>;
   }
+
   return (
     <div>
       <h1 className='header'>Product Details</h1>
@@ -31,7 +35,8 @@ const ProductDetails = () => {
         <p>{product.description}</p>
         <p>Brand: {product.brand}</p>
         <p> Price: {product.price}</p>
-        <h4> Ratings: {product.rating}</h4>
+        <p> Ratings: {product.rating}</p>
+        <p>Discount: {product.discountPercentage}</p>
       </div>
     </div>
   );
