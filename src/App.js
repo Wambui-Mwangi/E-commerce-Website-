@@ -4,11 +4,22 @@ import LogIn from './LogIn';
 import Products from './Products';
 import ProductDetails from './ProductDetails';
 import AddProducts from './AddProducts';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+// import {
+//   createBrowserRouter,
+//   RouterProvider,
+//   Route,
+//   Link,
+// } from "react-router-dom";
 
 
 function App() {
 return <BrowserRouter>
+<nav className='nav'>
+<Link to="/">LogIn</Link>
+<Link to="/Products"> Products </Link>
+<Link to="/AddProducts"> AddProducts </Link>
+</nav>
   <Routes>
     <Route path='/' element={<LogIn/>}/>
     <Route path="/products" element={<Products />} />

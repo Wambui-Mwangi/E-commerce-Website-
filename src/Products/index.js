@@ -37,8 +37,8 @@ const Products = () => {
       </Link>
       <div className="products-container ">
         {products.map((item) => (
-          <div key={item.id}>
-            <img src={item.images[1]} className="product-item" />
+          <div key={item.id} className="one_product">
+            <img src={item.images[1]} className="" />
             <h3 className="product-title">{item.title}</h3>
             <Link to={`/products/${item.id}`} className="btn">
               <button type="submit" className="extra">View</button>
